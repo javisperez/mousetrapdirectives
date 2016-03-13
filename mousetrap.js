@@ -7,7 +7,7 @@
  * 03-16-2016
  */
 
-angular.module('mousetrap-directives')
+angular.module('mousetrap-directives', [])
 
     // Generic mousetrap factory
     .factory('$mousetrap', function ($window, $route, $rootScope, $uibModal, $timeout) {
