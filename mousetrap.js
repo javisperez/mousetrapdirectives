@@ -9,6 +9,42 @@
 
 angular.module('mousetrap-directives')
 
+    // Generic mousetrap factory
+    .factory('$mousetrap', function ($window, $route, $rootScope, $uibModal, $timeout) {
+
+        var isMac = $window.navigator.platform.toLowerCase().indexOf('mac') > -1;
+
+        function parseModKey(key) {
+            if (isMac) {
+                return key.replace(/(mod)/ig, 'command');
+            }
+
+            return key.replace(/(mod)/ig, 'ctrl');
+        }
+
+        return function (hotkeys, $element, attrs) {
+
+            var keys = Object.keys(hotkeys);
+
+            keys.forEach(function (key) {
+                var fn = hotkeys[key];
+
+                Mousetrap.bind(key, function (ev, combo) {
+                    ev.preventDefault();
+
+                    if ($element.is(':disabled')) {
+                        return false;
+                    }
+
+                    fn(ev, combo);
+                    return false;
+                });
+            });
+
+        };
+
+    })
+
     /**
      * mousetrap directive to execute the given action with a keyboard shortcut
      */
