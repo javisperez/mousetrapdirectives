@@ -1,0 +1,26 @@
+{
+    "name": "mousetrap-directives",
+    "version": "1.0.0",
+    "main": "mousetrap.js",
+    "homepage": "https://github.com/javisperez/mousetrapdirectives",
+    "authors": [
+        "Javis Perez <javisperez@gmail.com>"
+    ],
+    "keywords": [
+        "angularjs",
+        "directives",
+        "focus",
+        "mousetrap",
+        "keyboard",
+        "shortcuts",
+        "hotkeys"
+    ],
+    "ignore": [
+        ".gitignore",
+        "bower.json",
+        "README.md"
+    ],
+    "dependencies": {
+        "angular": "^1.5.*"
+    }
+}
